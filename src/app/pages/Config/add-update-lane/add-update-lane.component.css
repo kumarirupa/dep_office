@@ -1,11 +1,11 @@
 .main-modal{
-    background: #9E9E9E;
+    background: #fff;
     position: absolute;
     width: 300px;
     top: 100px;
-    height: 350px;
     z-index: 99999;
     left: 30%;
+    border-radius: 10px;
 }
 
 .modal-parent{
@@ -17,19 +17,8 @@
     top: 0;
 }
 
-.modal{
-    background: #9E9E9E;
-    position: absolute;
-    width: 300px;
-    top: 100px;
-    height: 350px;
-    z-index: 99999;
-    left: 30%;
-}
-
 .d-block{
     display: block;
-    
 }
 
 .d-none{
@@ -40,7 +29,6 @@
     display: flex;
     justify-content: center;
 }
-
 
 .modal-header{
     background: #563d7c;

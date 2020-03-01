@@ -1,0 +1,51 @@
+.main-modal{
+    background: #9E9E9E;
+    position: absolute;
+    width: 300px;
+    top: 100px;
+    height: 350px;
+    z-index: 99999;
+    left: 30%;
+}
+
+.modal-parent{
+    background: rgba(100, 100, 100, 0.2);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+}
+
+.modal{
+    background: #9E9E9E;
+    position: absolute;
+    width: 300px;
+    top: 100px;
+    height: 350px;
+    z-index: 99999;
+    left: 30%;
+}
+
+.d-block{
+    display: block;
+    transition: 5s;
+}
+
+.d-none{
+    display: none;
+    transition: 5s;
+}
+
+.pull-center{
+    display: flex;
+    justify-content: center;
+}
+th{
+    text-align: center;
+    background: radial-gradient(#673ab75e, #03a9f473);
+}
+td{
+    text-align: center;
+
+}

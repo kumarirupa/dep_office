@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  token :'VmFhYU5Nb2JpbGVBcGk=',
+  ApiPrefix:"http",
+  ApiIP:'localhost',
+  ApiPort:'56992',
+  ApiAdminPath:'/VaaaN/DEPAdminApi/',
+  ApiImagePath:'/Attachment/',
+  ClientFirstName:"Delhi Entry",
+  ClientSecondName:"Point",
 };
 
 /*

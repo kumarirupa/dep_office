@@ -1,1 +1,62 @@
-<p>lane works!</p>
+ <!-- <p>lane works!</p> -->
+
+
+ <div>
+     <nav class="navbar navbar-light bg-dark">
+         <a class="navbar-brand text-white">Lane DataTable</a>
+         <i class="fa fa-plus-circle" style="font-size: 25px; color: #fff; cursor: pointer;" (click)="discoverClicked()"></i>
+     </nav>
+ </div>
+<div class="table-box" style="height: 500px; overflow: auto;">
+    <p-table [value]="LaneData">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Gantry Name</th>
+                <th>Lane Number</th>
+                <th>Lane Name</th>
+                <th>Lane TypeName</th>
+                <th>DS</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-lane>
+            <tr *ngIf="lane.GantryName !== null" (click)="openUpdatePopupCall(lane)">
+                 <td>{{lane.GantryName}}</td> 
+                <td>{{lane.LaneNumber}}</td>   
+                <td>{{lane.LaneName}}</td>
+                <td>{{lane.LaneTypeName}}</td>
+                <td>{{lane.DS}}</td>
+            </tr>
+        </ng-template>
+     </p-table> 
+</div>
+<app-add-update-lane [openPopup]=openPopup></app-add-update-lane>
+
+<!--modal-->
+ <div class="modal-parent" [ngClass]="openUpdateModal==true?'d-block':'d-none'">
+    <div class="main-modal" >
+        <div class="modal-header">
+            <h4 class="modal-title">Update Lane</h4>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+         <div class="modal-body">
+            <p>{{selectedLane.LaneMasterId}}</p>
+            <form class="example-form" #postForm="ngForm" (submit)="updateLane(postForm)">
+                <div>
+                    
+                    <input [(ngModel)]="selectedLane.GantryName" name="value1" placeholder="Enter GantryName" type="text"><br> 
+                    <input [(ngModel)]="selectedLane.LaneNumber" name="value2" placeholder="Enter Lane Number" type="text"> <br>
+                    <input [(ngModel)]="selectedLane.LaneName" name="value3" placeholder="Enter LaneName" type="text"> <br> 
+                    <input [(ngModel)]="selectedLane.LaneTypeName" name="value4" placeholder="Enter LaneTypeName" type="text"> <br> 
+                    <input [(ngModel)]="selectedLane.DS" name="value5" placeholder="Enter ds" type="text"> <br>  
+                    <button style="margin-top:10px">Update</button>
+                </div>
+            </form> 
+        </div>
+    </div> 
+ </div>   
+    
+
+
+

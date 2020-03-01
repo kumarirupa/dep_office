@@ -1,0 +1,125 @@
+<!-- <p>add-update-lane works!</p> -->
+<!--add emp modal-->
+<div class="modal-parent" [ngClass]="openModal=='openAddPopup'?'d-block':'d-none'">
+    <div class="main-modal">
+        <div class="modal-header">
+        
+            <h4 class="modal-title">Add Lane</h4>
+            <!-- <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                <span style="color: #fff;" aria-hidden="true">×</span>
+            </button> -->
+        </div>
+        <div class="modal-body">
+          
+            <form class="example-form" #postForm="ngForm">
+             
+                <div class="text-box-container">
+                    <!-- <input [(ngModel)]="empData.name" name="value1" placeholder="Enter Name" type="text"> <br> -->
+                    <!-- <input [(ngModel)]="empData.salary" name="value2" placeholder="Enter salary" type="text"> <br> -->
+                    <!-- <input [(ngModel)]="empData.age" name="value3" placeholder="Enter age" type="text"> <br> -->
+                    <div *ngIf="isAdded" #alert class="alert alert-danger alert-dismissible fade show mt-2" role="alert"> 
+                        Lane Added
+                      </div>
+                    <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Gantry Name</mat-label>
+                         <input  [(ngModel)]="selectedLane.GantryName" name="value11" matInput placeholder="Enter Gantry Name" type="text" required> 
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Lane Number</mat-label>
+                        <input  [(ngModel)]="selectedLane.LaneNumber" name="value22" matInput placeholder="Enter Lane Number" type="text" required>
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Lane Name</mat-label>
+                        <input  [(ngModel)]="selectedLane.LaneName" name="value33" matInput placeholder="Enter Lane Name" type="text" required>
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                      </mat-form-field>
+
+
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Lane TypeName</mat-label>
+                        <input  [(ngModel)]="selectedLane.LaneTypeName" name="value44" matInput placeholder="Enter Lane TypeName" type="text" required>
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                      </mat-form-field>
+
+
+
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Data Status</mat-label>
+                        <input  [(ngModel)]="selectedLane.DS" name="value55" matInput placeholder="Enter Lane Name" type="text" required>
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                      </mat-form-field>
+
+
+                </div>
+              
+            </form>
+      
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-light text-white" (click)="addLane(postForm)">Add</button>
+            <button type="button" class="btn btn-outline-light text-white" (click)="closeModal()">Close</button>
+          </div>
+    </div>
+    </div>
+  
+
+<!--update emp modal-->
+<!-- <div class="modal-parent" [ngClass]="openModal=='openUpdatePopup'?'d-block':'d-none'">
+    <div class="main-modal">
+        <div class="modal-header">
+            <h4 class="modal-title">Update Lane</h4> -->
+            <!-- <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                <span style="color: #fff;" aria-hidden="true">×</span>
+            </button> -->
+         <!-- </div>
+        <div class="modal-body">
+            <form class="example-form" #postForm="ngForm">
+                <div class="text-box-container">
+                    <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Gantry Id</mat-label>
+                        <input [(ngModel)]="selectedLane.GantryName" name="updategantryName" matInput placeholder="Enter Gantry Name" required>  -->
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                      <!-- </mat-form-field>
+
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Lane Number</mat-label>
+                        <input  [(ngModel)]="selectedLane.LaneNumber" name="updatelanenumber"  matInput placeholder="Enter Lane Number" required>  -->
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                       <!-- </mat-form-field>
+
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Lane Name</mat-label>
+                        <input  [(ngModel)]="selectedLane.LaneName" name="updatelaneName" matInput placeholder="Enter Lane Name" required>  -->
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                       <!-- </mat-form-field>
+
+
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Lane TypeName</mat-label>
+                        <input  [(ngModel)]="selectedLane.LaneTypeName" name="updatelanetypeName" matInput placeholder="Enter LaneType Name" required>  -->
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                       <!-- </mat-form-field>
+
+
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Data Status</mat-label>
+                        <input  [(ngModel)]="selectedLane.DS" name="updatedatastatus" matInput placeholder="Enter Data Status" required>  -->
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                       <!-- </mat-form-field>
+
+
+                      
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-light text-white" (click)="updateLane(postForm)">Update</button>
+            <button type="button" class="btn btn-outline-light text-white" (click)="closeModal()">Close</button>
+          </div>
+</div>
+ </div> -->

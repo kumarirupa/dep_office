@@ -1,1 +1,138 @@
-<p>plaza works!</p>
+<!-- <p>plaza works!</p> -->
+<div class="table-box" style="height: 500px; overflow: auto;">
+    <p-table [value]="PlazaData">
+        <ng-template pTemplate="header">
+            <tr>
+                <!-- <th>Tms Id</th> -->
+                <th>Gantry Id</th>
+                <th>Gantry Name</th>
+                <th>Location</th>
+                <th>IpAddress</th>
+                <th>DS</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-plaza>
+            <tr *ngIf="plaza.gantryName !== null" (click)="modalUpdateOpen(plaza)">
+                <!-- <td>{{plaza.tmsId}}</td> -->
+                <td>{{plaza.gantryId}}</td>
+                <td>{{plaza.gantryName}}</td>
+                <td>{{plaza.location}}</td>
+                <td>{{plaza.ipAddress}}</td>
+                <td>{{plaza.ds}}</td>
+                 <!-- <td><i class="fa fa-pencil" style="font-size:25px;color:red; cursor: pointer;"
+                    (click)="modalUpdateOpen(plaza)"></i></td>   -->
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+
+<!--modal-->
+<div class="modal-parent" [ngClass]="openUpdateModal==true?'d-block':'d-none'">
+    <div class="main-modal" >
+        <div class="modal-header">
+            <h4 class="modal-title">Update Plaza</h4>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="example-form" #postForm="ngForm">
+            <p>{{selectedLane.tmsId}}</p>
+            <!-- <form class="example-form" #postForm="ngForm" (submit)="addEmployee(postForm)">
+                <div>
+                    <input [(ngModel)]="empData.name" name="value1" placeholder="Enter Name" type="text">    <br>
+                    <input [(ngModel)]="empData.salary" name="value2" placeholder="Enter salary" type="text">    <br>
+                    <input [(ngModel)]="empData.age" name="value3" placeholder="Enter age" type="text">   <br> 
+                  <button style="margin-top:10px; margin-bottom: 10px;">Add</button>         
+                </div>
+            </form> -->
+            <!-- <form class="example-form" #postForm="ngForm" (submit)="updatePlaza(postForm)"> -->
+                <div class="text-box-container">
+                    
+                    <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Gantry Name</mat-label>
+                         <input  [(ngModel)]="selectedLane.gantryName" name="value2" matInput placeholder="Enter Gantry Name" type="text" required> 
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                      </mat-form-field>
+
+
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Location</mat-label>
+                         <input  [(ngModel)]="selectedLane.location" name="value3" matInput placeholder="Enter Gantry Name" type="text" required> 
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                      </mat-form-field>
+
+
+
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>IpAddress</mat-label>
+                         <input  [(ngModel)]="selectedLane.ipAddress" name="value4" matInput placeholder="Enter Gantry Name" type="text" required> 
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                      </mat-form-field>
+
+                   
+                   
+                      <mat-form-field appearance="outline" class="example-full-width mt-4">
+                        <mat-label>Data Status</mat-label>
+                         <input  [(ngModel)]="selectedLane.ds" name="value5" matInput placeholder="Enter Gantry Name" type="text" required> 
+                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error> -->
+                      </mat-form-field>
+
+                
+                   
+                   
+                      
+                   
+                   
+                   
+                   
+                      <!-- <input [(ngModel)]="selectedLane.gantryName" name="value2" placeholder="Enter GantryName" type="text"><br>
+                    <input [(ngModel)]="selectedLane.location" name="value3" placeholder="Enter Location" type="text"> <br>
+                    <input [(ngModel)]="selectedLane.ipAddress" name="value4" placeholder="Enter IpAddress" type="text"> <br> 
+                    <input [(ngModel)]="selectedLane.ds" name="value5" placeholder="Enter ds" type="text"> <br>  -->
+                    <!-- <button style="margin-top:10px">Update</button> -->
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-light text-white" (click)="updatePlaza(postForm)">Update</button>
+            <button type="button" class="btn btn-outline-light text-white" (click)="closeModal()">Close</button>
+          </div>
+    </div>
+</div>
+    
+    
+    <!-- </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" >Close</button>
+      </div> -->
+    
+    <!--add emp modal-->
+    <div class="modal-parent" [ngClass]="openAddModal==true?'d-block':'d-none'">
+    <div class="main-modal">
+        <div class="modal-header">
+            <h4 class="modal-title">Add Plaza</h4>
+            <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <!-- <div class="modal-body">
+            <form class="example-form" #postForm="ngForm" (submit)="addPlaza(postForm)">
+                <div>
+                    
+                    <input [(ngModel)]="PlazaData.gantryName" name="value1" placeholder="Enter GantryName" type="text"> <br>
+                    <input [(ngModel)]="PlazaData.location" name="value2" placeholder="Enter Location" type="text"> <br>
+                    <input [(ngModel)]="PlazaData.ipAddress" name="value3" placeholder="Enter IpAddress" type="text"> <br> 
+                    <input [(ngModel)]="PlazaData.ds" name="value4" placeholder="Enter ds" type="text"> <br> 
+                    <button style="margin-top:10px; margin-bottom: 10px;">Add</button>
+                </div>
+            </form>
+        </div> -->
+    </div>
+    </div>
+    
+    <!--add btn-->
+    <button (click)="modalAddOpen()" style="background:blue; color: #fff; width: 100px; height: 50px;">Add</button>
+    
