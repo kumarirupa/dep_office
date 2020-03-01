@@ -1,0 +1,9 @@
+
+footer {
+    height: 50px;
+    width: 83.33%; 
+    background-color: rgb(136, 48, 48);
+    position: fixed;
+    bottom: 0;
+    left: 16.66%;
+}

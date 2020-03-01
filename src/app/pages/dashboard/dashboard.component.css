@@ -1,0 +1,10 @@
+#content {
+    
+    margin: 0 0 30px 210px;
+    background-color: rgb(224, 19, 19);
+}
+#main {
+  
+    padding: 10px;
+    line-height: 20; /* to fake lot of content / scrolling */
+}

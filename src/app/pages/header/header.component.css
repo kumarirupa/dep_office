@@ -1,0 +1,10 @@
+
+header {
+
+    height: 50px;
+    width: 83.33%; 
+    background-color: rgb(127, 105, 167);
+    position: fixed;
+    top: 0;
+    left: 16.66%;
+}
