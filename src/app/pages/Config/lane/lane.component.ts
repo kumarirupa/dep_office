@@ -42,58 +42,33 @@ export class LaneComponent implements OnInit {
     this.dbService.GetLaneMaster(Obj).subscribe(
       data => {
         this.LaneData=data;
-        console.log(this.LaneData);
+        console.log('lane master detail::::::',this.LaneData);
       },
       (error) => {
         }
     );
   }
 
-  modalUpdateOpen(data){
-    this.openUpdateModal = true
-    this.selectedLane = data
-    console.log('data::', this.selectedLane)
+  // modalUpdateOpen(data){
+  //   this.openUpdateModal = true
+  //   this.selectedLane = data
+  //   console.log('data::', this.selectedLane)
 
-  }
+  // }
 
-  modalAddOpen(){
-    console.log('addc callig')
+  // modalAddOpen(){
+  //   console.log('addc callig')
     
-    this.openAddModal = true
-  }
+  //   this.openAddModal = true
+  // }
 
-  closeModal(){
-    this.openUpdateModal = false
-    this.openAddModal = false
+  // closeModal(){
+  //   this.openUpdateModal = false
+  //   this.openAddModal = false
 
-  }
+  // }
 
-  addLane(form: NgForm){
-    console.log('hdghdfs::', this.LaneData)
-    this.api.AddNewLane(this.LaneData).subscribe(
-      res => {
-        console.log('add response::::::::::', res)
-      },
-      err => {
-        console.log('add error::::::', err)
-      }
-
-    )
-  }
-  updateLane(form: NgForm){
-    console.log('updatea::::::', this.selectedLane)
-    // this.api.AddNewEmp(this.empData).subscribe(
-    //   res => {
-    //     console.log('add response::::::::::', res)
-    //   },
-    //   err => {
-    //     console.log('add error::::::', err)
-    //   }
-
-    // )
-  }
-
-  discoverClicked(){
+  openAddPopupCall(){
     this.openPopup = {status: 'openAddPopup'};
    
 }

@@ -7,6 +7,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 //import { RolesComponent } from './pages/Config/roles/roles.component';
 import { UnReviewedComponent } from './pages/transactions/un-reviewed/un-reviewed.component';
 import { ReviewedComponent } from './pages/transactions/reviewed/reviewed.component';
+import { AuthGuard } from './auth/auth.guard';
 //import { LaneComponent } from './pages/Config/lane/lane.component';
 //import { HardwareComponent } from './pages/Config/hardware/hardware.component';
 
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent},
-  { path: 'unreviewed', component: UnReviewedComponent},
+  { path: 'unreviewed', component: UnReviewedComponent, canActivate: [AuthGuard]},
   { path: 'reviewed', component: ReviewedComponent},
   // { path: 'roles', component: RolesComponent},
   // { path: 'hardware', component: HardwareComponent},

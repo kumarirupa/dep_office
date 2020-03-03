@@ -84,6 +84,15 @@ export class DatabaseService {
     return this.objHttp.post(this.apiurl+'GetLaneMaster/',objInput, {headers:this.header});
   }
 
+  AddLaneMaster(objInput: {}) {
+    return this.objHttp.post(this.apiurl+'GetLaneMaster/',objInput, {headers:this.header});
+  }
+
+  UpdateNewEmp(id:any, data: any) {
+    console.log('data check for update::',id, data)
+    return this.objHttp.put(`http://dummy.restapiexample.com/api/v1/update/${id}`, data, {headers:this.header});
+  }
+
   RoleData()
   {
     return this.objHttp.get(this.apiurl+'RoleDataMaster/', {headers:this.header});

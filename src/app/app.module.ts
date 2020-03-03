@@ -36,11 +36,15 @@ import { RolesComponent } from './pages/Config/roles/roles.component';
 import { PlazaComponent } from './pages/Config/plaza/plaza.component';
 import { LaneComponent } from './pages/Config/lane/lane.component';
 
+
 //import { from } from 'rxjs';
 //Primengtable
 import { TableModule } from 'primeng/table';
 import { AddUpdateLaneComponent } from './pages/Config/add-update-lane/add-update-lane.component';
 import { HardwareComponent } from './pages/Config/hardware/hardware.component';
+
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 
 
@@ -105,7 +109,7 @@ import { HardwareComponent } from './pages/Config/hardware/hardware.component';
     //MatNativeDateModule,
     //MatFileUploadModule
   ],
-  providers: [LoginapiService],
+  providers: [LoginapiService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
